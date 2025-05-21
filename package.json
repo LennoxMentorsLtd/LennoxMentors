@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.2",
   "scripts": {
+    "dev": "webpack --watch",
     "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "npx http-server -a localhost -p 3030 wwwroot"
+    "start": "npx http-server -c -1 -a localhost -p 3030 wwwroot"
   },
   "devDependencies": {
     "babel-loader": "^10.0.0",

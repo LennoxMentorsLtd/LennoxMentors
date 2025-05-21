@@ -3,31 +3,32 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>{{ title }}</title>
+  <title>{{ metadata.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Metadata -->
   <meta name="author" content="Samuel Grant" />
-  <meta name="description" content="{{ description }}" />
-  <meta name="keywords" content="" />
-  <meta name="theme-color" content="" />
+  <meta name="description" content="{{ metadata.description }}" />
+  <meta name="keywords" content="{{ metadata.keywords }}" />
+  <meta name="theme-color" content="{{ metadata.theme-color }}" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="{{ title }}" />
-  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:title" content="{{ metadata.title }}" />
+  <meta property="og:description" content="{{ metadata.description }}" />
   <meta property="og:image" content="" />
   <meta property="og:image:height" content="" />
   <meta property="og:image:width" content="" />
   <meta property="og:image:alt" content="" />
 
   <!-- Assets -->
-  <link rel="stylesheet" href="/dist/index.css" />
+  <link rel="stylesheet" href="/dist/core.css" />
   <link rel="icon" type="" href="/dist/favicon.ico" />
-  <script src="/dist/index.js" defer></script>
+  <script src="/dist/core.js" defer></script>
 </head>
 
-<body>
+<body {% if view.variant %}class="{{ view.variant }}"{% endif %}>
+  {% include "pages/partials/navbar.njk" %}
   {% block body %}
   {% endblock %}
 </body>

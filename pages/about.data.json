@@ -1,1 +1,8 @@
-{"title": "Hello World"}
+{
+  "metadata": {
+    "title": "About | Lennox Mentors"
+  },
+  "view": {
+    "variant": "dark"
+  }
+}

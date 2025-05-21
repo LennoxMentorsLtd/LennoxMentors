@@ -1,1 +1,8 @@
-{"title": "Hello World"}
+{
+  "metadata": {
+    "title": "Contact | Lennox Mentors"
+  },
+  "view": {
+    "variant": null
+  }
+}
