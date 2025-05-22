@@ -68,14 +68,14 @@ const moduleConfig = {
       test: /\.(png|jpe?g|gif|svg)$/i,
       type: 'asset/resource',
       generator: {
-        filename: 'images/[name][ext][query]'
+        filename: 'dist/images/[name][ext][query]'
       }
     },
     {
       test: /\.(woff2?|eot|ttf|otf)$/i,
       type: 'asset/resource',
       generator: {
-        filename: 'fonts/[name][ext][query]'
+        filename: 'dist/fonts/[name][ext][query]'
       }
     }
   ]

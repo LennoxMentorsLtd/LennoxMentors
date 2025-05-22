@@ -1,15 +1,31 @@
-@font-face {
-  font-family: 'belleza';
-  src: url('/assets/fonts/Belleza-Regular.ttf') format('truetype');
-};
-
 body {
   background: #4F4F57;
   color: #F6F4F1;
   font-family: 'belleza';
+  margin: 0;
+
 
   &.dark {
     background: #2E2B29;
     color: #F6F4F1;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+nav {
+  background: #E2EBF4;
+
+  a {
+    color: #5b5247;
+    font-size: 15px;
+  }
+
+
+  li:nth-child(3) a {
+    color: #373430;
+    font-size: 30px;
   }
 }
