@@ -120,3 +120,39 @@ nav {
     }
   }
 }
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr; // Two equal columns
+  grid-template-rows: 1fr;        // One row
+  gap: 45px;
+
+  margin-top: 4vh;
+
+  p, li {
+    font-size: 25px;
+  }
+
+  img {
+    max-width: 360px;
+  }
+
+  a.button {
+    background: #fff;
+    border-radius: 20px;
+    color: #5b5247;
+    padding: 10px 20px;
+    font-family: 'bakerville';
+    text-transform: uppercase;
+    transition: ease-in-out 0.3s;
+
+    &:hover {
+      background: rgb(212, 212, 212);
+    }
+  }
+
+  a:not(.button) {
+    color: unset;
+    text-decoration: none;
+  }
+}

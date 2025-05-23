@@ -29,8 +29,11 @@
 
 <body {% if view.variant %}class="{{ view.variant }}"{% endif %}>
   {% include "pages/partials/navbar.njk" %}
+
+  <main>
   {% block body %}
   {% endblock %}
+  </main>
 </body>
 
 </html>
