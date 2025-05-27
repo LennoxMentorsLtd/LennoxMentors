@@ -1,7 +1,7 @@
 nav {
   background: #E2EBF4;
-  height: 80px;
-
+  box-shadow: 4px 3px #5f5d5d5c;
+  height: 6.25rem;
   margin: 0 auto;
   padding: 0 1.5rem;
 
@@ -57,13 +57,21 @@ nav {
 
     a {
       color: #5b5247;
-      font-size: 20px;
+      font-size: 1.30rem;
       text-transform: uppercase;
+
+      @media (max-height: 400px) {
+        font-size: .75rem;
+      }
 
       &:nth-of-type(3) {
         color: #373430;
-        font-size: 40px;
+        font-size: 2.5rem;
         text-transform: capitalize;
+
+        @media (max-height: 400px) {
+          font-size: 1.5rem;
+        }
       }
     }
 

@@ -5,6 +5,10 @@
   src: url('/assets/fonts/Belleza-Regular.ttf') format('truetype');
 };
 
+html {
+  font-size: 20px;
+}
+
 body {
   background: #4F4F57;
   color: #F6F4F1;
@@ -28,6 +32,7 @@ a.button {
   color: #5b5247;
   padding: 10px 20px;
   font-family: 'bakerville';
+  font-size: 1.1rem;
   text-transform: uppercase;
   transition: ease-in-out 0.3s;
 
@@ -39,6 +44,17 @@ a.button {
 main a:not(.button) {
   color: unset;
   text-decoration: none;
+  transition: ease-in-out 0.3s;
+
+  &:hover {
+    color: rgb(212, 212, 212);
+  }
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    margin-top: 0px;
+  }
 }
 
 main {
@@ -48,18 +64,24 @@ main {
   justify-content: center;
   gap: 45px;
 
-  margin: 80px 0;
+  margin: 35px 0;
 
   div {
-    max-width: 45vw;
+    max-width: 51vw;
   }
 
   img {
-    max-width: 360px;
+    max-width: 475px;
   }
 
   p, li, a:not(.button) {
-    font-size: 25px;
+    font-size: 1.25rem;
+    line-height: 1.6rem;;
+  }
+
+  p.lead, ul.lead li {
+    font-size: 1.75rem;
+    line-height: 2.2rem;
   }
 
   @media (max-width: 768px) {
