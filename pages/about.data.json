@@ -1,6 +1,9 @@
 {
   "metadata": {
-    "title": "About | Lennox Mentors"
+    "title": "About | Lennox Mentors",
+    "description": "",
+    "keywords": "",
+    "theme-color": "#e2ebf4"
   },
   "view": {
     "variant": "dark"
