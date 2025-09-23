@@ -1,9 +1,15 @@
 {
   "metadata": {
     "title": "Contact | Lennox Mentors",
-    "description": "",
+    "description": "In-person CEO mentoring in NZ and UK. Global online consultations available.",
     "keywords": "",
-    "theme-color": "#e2ebf4"
+    "theme_color": "#e2ebf4",
+    "og_image": {
+      "height": 630,
+      "width": 1200,
+      "alt_text": "Enquire now",
+      "fileName":"contact.png"
+    }
   },
   "view": {
     "variant": null

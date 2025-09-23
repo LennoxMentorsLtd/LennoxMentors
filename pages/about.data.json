@@ -1,9 +1,15 @@
 {
   "metadata": {
     "title": "About | Lennox Mentors",
-    "description": "",
+    "description": "Gain unparalleled business leadership insights from a seasoned CEO.",
     "keywords": "",
-    "theme-color": "#e2ebf4"
+    "theme_color": "#e2ebf4",
+    "og_image": {
+      "height": 630,
+      "width": 1200,
+      "alt_text": "Meet your Mentor",
+      "fileName":"about.png"
+    }
   },
   "view": {
     "variant": "dark"

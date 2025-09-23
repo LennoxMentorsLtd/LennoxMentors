@@ -11,7 +11,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const entry = {
-  core: [ './assets/index.js', './assets/index.scss'],
+  core: [
+    './assets/index.js',
+    './assets/index.scss',
+    './assets/images/favicon.png',
+    './assets/images/seo/index.png',
+    './assets/images/seo/about.png',
+    './assets/images/seo/contact.png',
+    './assets/images/seo/mentoring.png'
+  ],
 };
 
 // Dynamically load all .njk files from the pages directory

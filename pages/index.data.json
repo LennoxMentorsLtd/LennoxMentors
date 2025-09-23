@@ -1,9 +1,15 @@
 {
   "metadata": {
     "title": "Lennox Mentors",
-    "description": "",
+    "description": "One-to-one CEO mentoring for executive leadership development.",
     "keywords": "",
-    "theme-color": "#e2ebf4"
+    "theme_color": "#e2ebf4",
+    "og_image": {
+      "height": 630,
+      "width": 1200,
+      "alt_text": "Elevate your leadership",
+      "fileName":"index.png"
+    }
   },
   "view": {
     "variant": "dark"

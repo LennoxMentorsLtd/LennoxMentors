@@ -10,20 +10,20 @@
   <meta name="author" content="Samuel Grant" />
   <meta name="description" content="{{ metadata.description }}" />
   <meta name="keywords" content="{{ metadata.keywords }}" />
-  <meta name="theme-color" content="{{ metadata.theme-color }}" />
+  <meta name="theme-color" content="{{ metadata.theme_color }}" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="{{ metadata.title }}" />
   <meta property="og:description" content="{{ metadata.description }}" />
-  <meta property="og:image" content="" />
-  <meta property="og:image:height" content="" />
-  <meta property="og:image:width" content="" />
-  <meta property="og:image:alt" content="" />
+  <meta property="og:image" content="/dist/images/{{ metadata.og_image.fileName }}" />
+  <meta property="og:image:height" content="{{ metadata.og_image.height }}" />
+  <meta property="og:image:width" content="{{ metadata.og_image.width }}" />
+  <meta property="og:image:alt" content="{{ metadata.og_image.alt_text }}" />
 
   <!-- Assets -->
   <link rel="stylesheet" href="/dist/core.css" />
-  <link rel="icon" type="" href="/dist/favicon.ico" />
+  <link rel="icon" type="" href="/dist/images/favicon.png" />
   <script src="/dist/core.js" defer></script>
 </head>
 

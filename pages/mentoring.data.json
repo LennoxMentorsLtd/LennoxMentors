@@ -1,9 +1,15 @@
 {
   "metadata": {
     "title": "Mentoring | Lennox Mentors",
-    "description": "",
+    "description": "Confidential CEO mentoring to develop your executive leadership skills.",
     "keywords": "",
-    "theme-color": "#e2ebf4"
+    "theme_color": "#e2ebf4",
+    "og_image": {
+      "height": 630,
+      "width": 1200,
+      "alt_text": "A CEO in your corner",
+      "fileName":"mentoring.png"
+    }
   },
   "view": {
     "variant": null
