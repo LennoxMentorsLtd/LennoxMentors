@@ -22,19 +22,43 @@ const entry = {
   ],
 };
 
+const globalData = {
+  site_url: process.env.SITE_URL
+};
+
+const getPageData = (fileDir, fileName) => {
+  const blob = path.join(fileDir, `${fileName}.data.json`);
+
+  if (!fs.existsSync(blob)) {
+    return globalData;
+  }
+
+  const data = {};
+
+  try {
+    data = JSON.parse(fs.readFileSync(blob, 'utf-8'));
+  }
+  catch (e) {
+    console.error(`Error parsing ${blob}`)
+  }
+
+  return { ...globalData, ...data };
+}
+
 // Dynamically load all .njk files from the pages directory
 // and include their corresponding .data.json file
 const pageEntries = () => {
   const entries = {};
-  const pagesDir = path.join(__dirname, 'pages');
-  const files =  fs.readdirSync(pagesDir);
+  const dir = path.join(__dirname, 'pages');
+  const files =  fs.readdirSync(dir);
 
   files.forEach(file => {
     if (file.endsWith('.njk')) {
-      const filenameWithoutExt = path.basename(file, '.njk');
-      entries[filenameWithoutExt] = {
+      const fileName = path.basename(dir, file, '.njk');
+
+      entries[fileName] = {
         import: `pages/${file}`,
-        data: `pages/${filenameWithoutExt}.data.json`
+        data: getPageData(fileName)
       };
     }
   });
