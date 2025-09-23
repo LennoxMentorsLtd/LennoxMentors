@@ -33,13 +33,13 @@ const getPageData = (fileDir, fileName) => {
     return globalData;
   }
 
-  const data = {};
+  let data = {};
 
   try {
     data = JSON.parse(fs.readFileSync(blob, 'utf-8'));
   }
   catch (e) {
-    console.error(`Error parsing ${blob}`)
+    console.error(`Error parsing ${blob}`, e.message)
   }
 
   return { ...globalData, ...data };
@@ -54,11 +54,10 @@ const pageEntries = () => {
 
   files.forEach(file => {
     if (file.endsWith('.njk')) {
-      const fileName = path.basename(dir, file, '.njk');
-
-      entries[fileName] = {
+      const filenameWithoutExt = path.basename(file, '.njk');
+      entries[filenameWithoutExt] = {
         import: `pages/${file}`,
-        data: getPageData(fileName)
+        data: getPageData(dir, filenameWithoutExt)
       };
     }
   });
