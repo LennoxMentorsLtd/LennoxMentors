@@ -6,6 +6,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
+import SitemapPluginModule from 'sitemap-webpack-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -45,36 +46,45 @@ const getPageData = (fileDir, fileName) => {
   return { ...globalData, ...data };
 }
 
-// Dynamically load all .njk files from the pages directory
-// and include their corresponding .data.json file
-const pageEntries = () => {
+const { entries, sitemap } = (() => {
   const entries = {};
-  const dir = path.join(__dirname, 'pages');
-  const files =  fs.readdirSync(dir);
 
-  files.forEach(file => {
+  const baseDir = path.join(__dirname, 'pages');
+  const sitemap = [];
+
+  fs.readdirSync(baseDir).forEach(file => {
     if (file.endsWith('.njk')) {
       const filenameWithoutExt = path.basename(file, '.njk');
       entries[filenameWithoutExt] = {
         import: `pages/${file}`,
-        data: getPageData(dir, filenameWithoutExt)
+        data: getPageData(baseDir, filenameWithoutExt)
       };
+      sitemap.push(filenameWithoutExt);
     }
   });
 
-  return entries;
-}
+  return { entries, sitemap };
+})();
 
 const plugins = [
   new MiniCssExtractPlugin({
     filename: 'dist/[name].css',
   }),
   new HtmlBundlerPlugin({
-    entry: pageEntries(),
+    entry: entries,
     outputPath: resolve(__dirname, 'wwwroot'),
     preprocessor: 'nunjucks',
     minify: {
       removeComments: true,
+    }
+  }),
+  new SitemapPluginModule.default({
+    base: process.env.SITE_URL || 'http://localhost:3030',
+    paths: sitemap,
+    options: {
+      lastmod: true,
+      changefreq: 'weekly',
+      skipgzip: true
     }
   })
 ];
