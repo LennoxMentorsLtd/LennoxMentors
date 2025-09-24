@@ -1,9 +1,15 @@
 @import './navbar';
+@import './animations';
 
 @font-face {
   font-family: 'belleza';
   src: url('/assets/fonts/Belleza-Regular.ttf') format('truetype');
 };
+
+@font-face {
+  font-family: 'baskerville ';
+  src: url('/assets/fonts/libre-baskerville-regular.ttf') format('truetype')
+}
 
 html {
   font-size: 20px;

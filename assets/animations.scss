@@ -1,0 +1,51 @@
+$directions: (
+  "up": translateY(50px),
+  "down": translateY(-50px),
+  "left": translateX(50px),
+  "right": translateX(-50px)
+);
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@each $direction, $attribute in $directions {
+  @keyframes fade-in-#{$direction} {
+    0% {
+      opacity: 0;
+      transform: $attribute;
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+
+  .animate-in-#{$direction} {
+    animation: fade-in-#{$direction} 1.5s ease-out forwards;
+    opacity: 0;
+  }
+}
+
+.animate-in {
+  animation: fade-in 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+@for $i from 1 to 5 {
+  .after-#{$i}s {
+    animation-delay: #{$i}s;
+  }
+}
+
+@for $i from 1 to 5 {
+  .for-#{$i}s {
+    animation-duration: #{$i}s!important;
+  }
+}
+
