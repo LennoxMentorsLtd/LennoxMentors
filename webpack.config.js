@@ -16,10 +16,10 @@ const entry = {
     './assets/index.js',
     './assets/index.scss',
     './assets/images/favicon.png',
-    './assets/images/seo/index.png',
-    './assets/images/seo/about.png',
-    './assets/images/seo/contact.png',
-    './assets/images/seo/mentoring.png'
+    './assets/images/seo/og_index.png',
+    './assets/images/seo/og_about.png',
+    './assets/images/seo/og_contact.png',
+    './assets/images/seo/og_mentoring.png'
   ],
 };
 
@@ -109,7 +109,10 @@ const moduleConfig = {
       test: /\.(png|jpe?g|gif|svg)$/i,
       type: 'asset/resource',
       generator: {
-        filename: 'dist/images/[name][ext][query]'
+        filename: (pathData) => {
+          const rawImageDir = path.resolve(__dirname, path.join('assets', 'images'));
+          return path.join('dist', 'images', path.relative(rawImageDir, pathData.filename))
+        }
       }
     },
     {
