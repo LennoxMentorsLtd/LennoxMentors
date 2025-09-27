@@ -1,60 +1,43 @@
 @use "sass:meta";
+$colors: (
+  bg-dark: #2E2B29,
+  bg-light: #4F4F57,
+  text: #F6F4F1,
+  href-color: #fff,
+  href-hover: rgb(212, 212, 212)
+);
+
+$transition: ease-in-out 0.3s;
+
 @font-face {
   font-family: 'belleza';
   src: url('/assets/fonts/Belleza-Regular.ttf') format('truetype');
-};
+}
 
 @font-face {
-  font-family: 'baskerville ';
+  font-family: 'baskerville';
   src: url('/assets/fonts/libre-baskerville-regular.ttf') format('truetype')
 }
 
 @include meta.load-css('navbar');
 @include meta.load-css('animations');
 
-html {
-  font-size: 20px;
-}
 
 body {
-  background: #4F4F57;
-  color: #F6F4F1;
+  background: map-get($colors, bg-light);
+  color: map-get($colors, text);
   font-family: 'belleza';
+  font-size: 2rem;
   margin: 0;
   overflow-x: hidden;
 
   &.dark {
-    background: #2E2B29;
-    color: #F6F4F1;
+    background: map-get($colors, bg-dark);
+    color: map-get($colors, text);
   }
 
   a {
     text-decoration: none;
-  }
-}
-
-a.button {
-  background: #fff;
-  border-radius: 20px;
-  color: #5b5247;
-  padding: 10px 20px;
-  font-family: 'bakerville';
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  transition: ease-in-out 0.3s;
-
-  &:hover {
-    background: rgb(212, 212, 212);
-  }
-}
-
-main a:not(.button) {
-  color: unset;
-  text-decoration: none;
-  transition: ease-in-out 0.3s;
-
-  &:hover {
-    color: rgb(212, 212, 212);
   }
 }
 
@@ -78,7 +61,7 @@ main {
   }
 
   img {
-    max-width: 730px;
+    max-width: 45.625rem;
   }
 
   p, li, a:not(.button) {
@@ -98,5 +81,35 @@ main {
     div, img {
       max-width: 85vw;
     }
+  }
+}
+
+
+
+/*
+ * Buttons & Hyperlinks
+ ******************************************************/
+a.button {
+  background: map-get($colors, href-color);
+  border-radius: 3rem;
+  color: #5b5247;
+  padding: 0.75rem 1.563rem;
+  font-family: 'bakerville';
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  transition: $transition;
+
+  &:hover {
+    background: map-get($colors, href-hover);
+  }
+}
+
+main a:not(.button) {
+  color: unset;
+  text-decoration: none;
+  transition: $transition;
+
+  &:hover {
+    color: map-get($colors, href-hover);
   }
 }
