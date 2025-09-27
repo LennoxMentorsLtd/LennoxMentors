@@ -137,6 +137,7 @@ export default {
   resolve: {
     extensions: ['.js', '.scss', '.css', '.njk']
   },
+  stats: 'minimal',
   devtool: 'source-map',
   module: moduleConfig
 };
