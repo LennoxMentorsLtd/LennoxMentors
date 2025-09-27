@@ -1,10 +1,16 @@
 @use "sass:meta";
+
 $colors: (
   bg-dark: #2E2B29,
   bg-light: #4F4F57,
   text: #F6F4F1,
   href-color: #fff,
   href-hover: rgb(212, 212, 212)
+);
+
+$font-size: (
+  h1: 6rem,
+  h2: 4rem,
 );
 
 $transition: ease-in-out 0.3s;
@@ -35,16 +41,6 @@ body {
     background: map-get($colors, bg-dark);
     color: map-get($colors, text);
   }
-
-  a {
-    text-decoration: none;
-  }
-}
-
-@for $i from 1 through 6 {
-  h#{$i} {
-    margin-top: 0px;
-  }
 }
 
 main {
@@ -64,16 +60,6 @@ main {
     max-width: 45.625rem;
   }
 
-  p, li, a:not(.button) {
-    font-size: 1.25rem;
-    line-height: 1.6rem;;
-  }
-
-  p.lead, ul.lead li {
-    font-size: 1.75rem;
-    line-height: 2.2rem;
-  }
-
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
@@ -84,6 +70,47 @@ main {
   }
 }
 
+/*
+ * Typography
+ ******************************************************/
+a {
+  text-decoration: none;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: 'baskerville';
+    font-weight: 100;
+    margin: 0 0;
+  }
+}
+
+h1 {
+  font-size: map-get($font-size, h1);
+  letter-spacing: 0.35rem;
+}
+
+h2 {
+  font-size: map-get($font-size, h2);
+  letter-spacing: 0.35rem;
+  margin-bottom: 7.5rem;
+}
+
+p, li, a:not(.button) {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+p.lead, ul.lead li {
+  font-size: 2.45rem;
+  line-height: 3.2rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.25rem
+}
+
+.highlight {
+  color: #e2ebf4;
+}
 
 
 /*
@@ -111,5 +138,50 @@ main a:not(.button) {
 
   &:hover {
     color: map-get($colors, href-hover);
+  }
+}
+
+/*
+ * Page Specific overrides
+ ******************************************************/
+
+main div[data-href='/'] {
+  h2 {
+    margin-left: 6rem;
+  }
+
+  p {
+    margin-left: 13rem;
+    margin-bottom: 7.5rem;
+  }
+
+  .button {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+main div[data-href='/about'] {
+  p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  h1, h2 {
+    display: inline;
+    font-size: map-get($font-size, h1);
+    margin-right: 1.35rem;
+  }
+}
+
+main div[data-href='/mentoring'] {
+  h2 {
+    margin-left: 6rem;
+  }
+
+  ul {
+    margin-bottom: 4rem;
   }
 }
