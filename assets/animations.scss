@@ -1,51 +1,62 @@
+// Animation variables
+$animation-duration: 2s;
+$animation-easing: ease-out;
+$animation-distance: 75px;
+
 $directions: (
-  "up": translateY(50px),
-  "down": translateY(-50px),
-  "left": translateX(50px),
-  "right": translateX(-50px)
+  up: translateY($animation-distance),
+  down: translateY(-$animation-distance),
+  left: translateX($animation-distance),
+  right: translateX(-$animation-distance)
 );
 
+/*
+ * Generic Fade-in Animation
+ * Usage: .animate-in
+ ******************************************************/
 @keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-@each $direction, $attribute in $directions {
+.animate-in {
+  animation: fade-in $animation-duration $animation-easing forwards;
+  opacity: 0;
+}
+
+/*
+ * Fade-in classes for different directions
+ * Usage: .animate-in-up, .animate-in-down, .animate-in-left, .animate-in-right
+ ******************************************************/
+@each $direction, $transform in $directions {
   @keyframes fade-in-#{$direction} {
     0% {
       opacity: 0;
-      transform: $attribute;
+      transform: $transform;
     }
     100% {
       opacity: 1;
-      transform: translate(0);
+      transform: none;
     }
   }
 
   .animate-in-#{$direction} {
-    animation: fade-in-#{$direction} 1.5s ease-out forwards;
+    animation: fade-in-#{$direction} $animation-duration $animation-easing forwards;
     opacity: 0;
   }
 }
 
-.animate-in {
-  animation: fade-in 1.5s ease-out forwards;
-  opacity: 0;
-}
 
-@for $i from 1 to 5 {
+
+/*
+ * Animation delay and duration utility classes
+ * Usage: .after-1s, .after-2s, ..., .for-1s, .for-2s, ...
+ *****************************************************/
+@for $i from 1 through 5 {
   .after-#{$i}s {
     animation-delay: #{$i}s;
   }
-}
-
-@for $i from 1 to 5 {
   .for-#{$i}s {
-    animation-duration: #{$i}s!important;
+    animation-duration: #{$i}s !important;
   }
 }
-
