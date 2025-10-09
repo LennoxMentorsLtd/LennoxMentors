@@ -31,6 +31,16 @@ $font: (
     font-size: map-get($font, index($headings, $h));
     letter-spacing: 0.35rem;
     margin: 0 0;
+
+    @media screen and (max-width: $breakpoint-md) {
+      font-size: map-get($font, index($headings, $h)) - 1.5rem;
+      letter-spacing: 0.25rem;
+    }
+
+    @media screen and (max-width: $breakpoint-sm) {
+      font-size: map-get($font, index($headings, $h)) - 1.75rem;
+      letter-spacing: 0.15rem;
+    }
   }
 }
 
@@ -38,11 +48,23 @@ p, li, a:not(.button) {
   color: map-get($colors, text);
   font-size: 2rem;
   line-height: 2.5rem;
-
   text-decoration: none;
+
+  @media screen and (max-width: $breakpoint-md) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  @media screen and (max-width: $breakpoint-sm) {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 
 a[href^='mailto:']:hover {
   text-decoration: underline;
 }
 
+p:last-of-type, li:last-of-type {
+  margin-bottom: 3rem;
+}
