@@ -1,0 +1,48 @@
+@use "_variables" as *;
+
+$headings: h1, h2, h3;
+
+@font-face {
+  font-family: 'belleza';
+  src: url('/assets/fonts/Belleza-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'baskerville';
+  src: url('/assets/fonts/libre-baskerville-regular.ttf') format('truetype')
+}
+
+@each $element in $headings, p, span, li {
+  #{$element}.highlight {
+    color: map-get($colors, accent);
+  }
+}
+
+$font: (
+  1: 6rem,
+  2: 4rem,
+  3: 3rem,
+);
+
+@each $h in $headings {
+  #{$h} {
+    font-family: 'bakskerville', serif;
+    font-weight: 100;
+    font-size: map-get($font, index($headings, $h));
+    letter-spacing: 0.35rem;
+    margin: 0 0;
+  }
+}
+
+p, li, a:not(.button) {
+  color: map-get($colors, text);
+  font-size: 2rem;
+  line-height: 2.5rem;
+
+  text-decoration: none;
+}
+
+a[href^='mailto:']:hover {
+  text-decoration: underline;
+}
+
