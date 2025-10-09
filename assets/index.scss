@@ -1,139 +1,73 @@
 @use "sass:meta";
+@use "_variables" as *;
 
-$breakpoint-xs: 480px;
-$breakpoint-sm: 768px;
-$breakpoint-md: 1080px;
-$breakpoint-lg: 1440px;
-
-
-$colors: (
-  bg-dark: #2E2B29,
-  bg-light: #4F4F57,
-  text: #F6F4F1,
-  href-color: #fff,
-  href-hover: rgb(212, 212, 212)
-);
-
-$font-size: (
-  h1: 6rem,
-  h2: 4rem,
-);
-
-$transition: ease-in-out 0.3s;
-
-@font-face {
-  font-family: 'belleza';
-  src: url('/assets/fonts/Belleza-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'baskerville';
-  src: url('/assets/fonts/libre-baskerville-regular.ttf') format('truetype')
-}
-
+@include meta.load-css('_typography');
 @include meta.load-css('navbar');
 @include meta.load-css('animations');
 
+html {
+  font-size: $rem-base;
+}
 
 body {
   background: map-get($colors, bg-light);
   color: map-get($colors, text);
-  font-family: 'belleza';
-  font-size: 2rem;
   margin: 0;
   overflow-x: hidden;
 
   &.dark {
     background: map-get($colors, bg-dark);
-    color: map-get($colors, text);
   }
 }
 
 main {
-  align-items: self-start;
   display: flex;
-  flex-direction: row;
+  flex-flow: row nowrap;
   justify-content: center;
+  align-items: flex-start;
   gap: 45px;
+  margin: 155px 120px 35px;
+  transition: margin-top ease-in 0.3s;
 
-  margin: 35px 0;
-  padding-top: 125px;
-
-  div {
-    max-width: 51vw;
+  img, div {
+    flex: 1 1 0;
+    max-width: 50%;
   }
 
   img {
-    max-width: 45.625rem;
+    height: auto;
+    object-fit: contain;
   }
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
+  @media screen and (max-width: $breakpoint-lg) {
+    margin-left: 75px;
+    margin-right: 75px;
+  }
 
-    div, img {
-      max-width: 85vw;
+  @media screen and (max-width: $breakpoint-md) {
+    margin: 99px 25px 35px;
+  }
 
-      @media screen and (max-width: $breakpoint-xs) {
-        max-width: 95vw;
-      }
+  @media screen and (max-width: $breakpoint-sm) {
+    flex-flow: column nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+
+    img, div {
+      width: 100%;
+      max-width: 100%;
     }
   }
 }
 
-/*
- * Typography
- ******************************************************/
-a {
-  text-decoration: none;
-}
-
-@for $i from 1 through 6 {
-  h#{$i} {
-    font-family: 'baskerville';
-    font-weight: 100;
-    margin: 0 0;
-  }
-}
-
-h1 {
-  font-size: map-get($font-size, h1);
-  letter-spacing: 0.35rem;
-}
-
-h2 {
-  font-size: map-get($font-size, h2);
-  letter-spacing: 0.35rem;
-  margin-bottom: 7.5rem;
-}
-
-p, li, a:not(.button) {
-  font-size: 2rem;
-  line-height: 2.5rem;
-}
-
-p.lead, ul.lead li {
-  font-size: 2.45rem;
-  line-height: 3.2rem;
-  letter-spacing: 0.1rem;
-  margin-bottom: 0.25rem
-}
-
-.highlight {
-  color: #e2ebf4;
-}
-
-
-/*
- * Buttons & Hyperlinks
- ******************************************************/
 a.button {
-  background: map-get($colors, href-color);
+  background-color: map-get($colors, accent);
   border-radius: 3rem;
-  color: #5b5247;
+  color: #5b5247!important;
   padding: 0.75rem 1.563rem;
   font-family: 'bakerville';
   font-size: 1.5rem;
+  text-decoration: none;
   text-transform: uppercase;
   transition: $transition;
 
@@ -142,138 +76,10 @@ a.button {
   }
 }
 
-main a:not(.button) {
-  color: unset;
-  text-decoration: none;
-  transition: $transition;
-
-  &:hover {
-    color: map-get($colors, href-hover);
-  }
-}
-
-/*
- * Page Specific overrides
- ******************************************************/
-
-main div[data-href='/'] {
-
-  h2 {
-    margin-left: 6rem;
-  }
-
-  p {
-    margin-left: 13rem;
-    margin-bottom: 7.5rem;
-  }
-
-  .button {
-    display: block;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @media screen and (max-width: $breakpoint-xs) {
-    text-align: center;
-    $font-size: 2rem;
-
-    @each $selector in h1, h2, p {
-      #{$selector} {
-        font-size: $font-size;
-        margin-left: 0;
-
-        @if $selector == h2 or $selector == p {
-          margin-bottom: 3vh;
-        }
-
-        @if $selector == p {
-          line-height: 1.5rem;
-        }
-      }
-      $font-size: $font-size - 0.5rem;
-    }
-
-    a.button {
-      font-size: 1rem;
-    }
-  }
-}
-
 main div[data-href='/about'] {
-  p {
+  p, li {
     font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  h1, h2 {
-    display: inline;
-    font-size: map-get($font-size, h1);
-    margin-right: 1.35rem;
-  }
-
-  @media screen and (max-width: $breakpoint-xs) {
-    text-align: center;
-
-    h1, h2 { font-size: 2rem; }
-    p { font-size: 1.25rem; line-height: unset; }
   }
 }
 
-main div[data-href='/mentoring'] {
-  h2 {
-    margin-left: 6rem;
-  }
 
-  ul {
-    margin-bottom: 4rem;
-  }
-
-  @media screen and (max-width: $breakpoint-xs) {
-    text-align: center;
-    $font-size: 2rem;
-
-    @each $selector in h1, h2, 'p, ul li' {
-      #{$selector} {
-        font-size: $font-size;
-        margin-left: 0;
-
-        @if $selector == h2 or $selector == 'p' {
-          margin-bottom: 3vh;
-        }
-
-        @if $selector == 'p, ul li' {
-          line-height: unset;
-        }
-      }
-      $font-size: $font-size - 0.5rem;
-    }
-
-    a.button {
-      font-size: 1rem;
-    }
-  }
-}
-
-main div[data-href='/contact'] {
-  @media screen and (max-width: $breakpoint-xs) {
-    text-align: center;
-    $font-size: 2rem;
-
-    @each $selector in h1, 'h2, h3', 'a, p, ul li' {
-      #{$selector} {
-        font-size: $font-size;
-        margin-left: 0;
-
-        @if $selector == h2 or $selector == 'p' {
-          margin-bottom: 3vh;
-        }
-
-        @if $selector == 'a, p, ul li' {
-          line-height: unset;
-        }
-      }
-      $font-size: $font-size - 0.5rem;
-    }
-  }
-}

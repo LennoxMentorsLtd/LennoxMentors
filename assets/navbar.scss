@@ -10,28 +10,33 @@ nav {
   box-shadow: $nav-shadow;
   height: 7.814rem;
   padding: 0 1.5rem;
-  z-index: 900;
   position: fixed;
   inset: 0 0 auto 0;
+  z-index: 900;
+
+  transition: height ease-in 0.3s;
 
   @media (max-width: $breakpoint) {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 4rem;
   }
 
   .hamburger {
     display: none;
     flex-direction: column;
-    cursor: pointer;
-    width: 30px;
-    height: 25px;
     justify-content: center;
+
+    height: 25px;
+    width: 30px;
     gap: 6px;
+
+    cursor: pointer;
 
     @media (max-width: $breakpoint) {
       display: flex;
-      z-index: 501;
+      z-index: 901;
 
       &.active {
         span:nth-child(1) {
@@ -59,8 +64,8 @@ nav {
 
   .nav-items {
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: space-evenly;
     height: 100%;
     background: $nav-bg;
     transition: right 0.4s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.3s;
@@ -68,19 +73,20 @@ nav {
     a {
       color: $nav-text-color;
       font-size: 1.635rem;
+      text-decoration: none;
       text-transform: uppercase;
       font-family: 'baskerville';
 
-      @media (max-height: $breakpoint) {
-        font-size: .75rem;
-      }
-
       &:nth-of-type(3) {
-        color:$nav-brand-color;
+        color: $nav-brand-color;
         font-size: 3.15rem;
         text-transform: capitalize;
+      }
 
-        @media (max-height: $breakpoint) {
+      @media (max-width: $breakpoint) {
+        font-size: .95rem;
+
+        &:nth-of-type(3) {
           font-size: 1.5rem;
         }
       }
@@ -94,23 +100,6 @@ nav {
       width: 100vw;
       flex-direction: column;
 
-      &.open {
-        right: 0;
-
-        a {
-          opacity: 1;
-          transform: translateY(0);
-
-          $transition-delays: (0.3s, 0.4s, 0.5s, 0.6s, 0.7s);
-          @each $delay in $transition-delays {
-            $index: index($transition-delays, $delay);
-            &:nth-child(#{$index}) {
-              transition-delay: $delay;
-            }
-          }
-        }
-      }
-
       a {
         opacity: 0;
         transform: translateY(30px);
@@ -120,3 +109,25 @@ nav {
   }
 }
 
+body.nav-open {
+  overflow-y: hidden;
+
+  @media (max-width: $breakpoint) {
+    .nav-items {
+      right: 0;
+
+      a {
+        opacity: 1;
+        transform: translateY(0);
+
+        $transition-delays: (0.3s, 0.4s, 0.5s, 0.6s, 0.7s);
+        @each $delay in $transition-delays {
+          $index: index($transition-delays, $delay);
+          &:nth-child(#{$index}) {
+            transition-delay: $delay;
+          }
+        }
+      }
+    }
+  }
+}

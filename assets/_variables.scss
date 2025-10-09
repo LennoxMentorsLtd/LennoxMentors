@@ -1,0 +1,22 @@
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 1080px;
+$breakpoint-lg: 1440px;
+
+$rem-base: 16px;
+
+$colors: (
+  accent: #e2ebf4,
+  bg-dark: #2E2B29,
+  bg-light: #4F4F57,
+  text: #F6F4F1,
+  href-color: #fff,
+  href-hover: rgb(212, 212, 212)
+);
+
+$font-size: (
+  h1: 6rem,
+  h2: 4rem,
+);
+
+$transition: ease-in-out 0.3s;
