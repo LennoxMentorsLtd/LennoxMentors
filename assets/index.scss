@@ -14,6 +14,8 @@ body {
   color: map-get($colors, text);
   margin: 0;
   overflow-x: hidden;
+  font-family: 'belleza', sans-serif;
+  letter-spacing: 0.055rem;
 
   &.dark {
     background: map-get($colors, bg-dark);
@@ -91,12 +93,21 @@ a.button {
   &:hover {
     background: map-get($colors, href-hover);
   }
+
+  @media screen and (max-width: $breakpoint-sm) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+  }
 }
 
 main {
-  > div[data-href='/about'] {
-    p, li {
-      font-size: 1.5rem;
+  @media screen and (min-width: $breakpoint-md) {
+    > div[data-href='/about'] {
+      p {
+        font-size: 1.5rem;
+      }
     }
   }
 
