@@ -12,7 +12,7 @@ $headings: h1, h2, h3;
   src: url('/assets/fonts/libre-baskerville-regular.ttf') format('truetype')
 }
 
-@each $element in $headings, p, span, li {
+@each $element in join($headings, (p, span, li)) {
   #{$element}.highlight {
     color: map-get($colors, accent);
   }

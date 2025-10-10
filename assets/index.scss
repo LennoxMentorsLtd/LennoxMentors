@@ -29,14 +29,20 @@ main {
   margin: 155px 120px 35px;
   transition: margin-top ease-in 0.3s;
 
-  img, div {
-    flex: 1 1 0;
-    max-width: 50%;
+  img {
+    max-height: calc(100vh - 155px - 35px);
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    flex: 0 0 auto;
+
+    top: 155px;
+    position: sticky;
   }
 
-  img {
-    height: auto;
-    object-fit: contain;
+  div {
+    flex: 1 1 0;
+    max-width: none;
   }
 
   @media screen and (max-width: $breakpoint-lg) {
@@ -46,12 +52,23 @@ main {
 
   @media screen and (max-width: $breakpoint-md) {
     margin: 99px 25px 35px;
+
+    img {
+      max-height: calc(100vh - 99px - 34px);
+      top: 99px;
+    }
   }
 
   @media screen and (max-width: $breakpoint-sm) {
     flex-flow: column nowrap;
     margin-left: 2.5vw;
     margin-right: 2.5vw;
+
+    img {
+      max-height: calc(100vh - 99px - 34px);
+      top: unset;
+      position: unset;
+    }
 
     img, div {
       width: 100%;
@@ -76,10 +93,22 @@ a.button {
   }
 }
 
-main div[data-href='/about'] {
-  p, li {
-    font-size: 1.5rem;
+main {
+  > div[data-href='/about'] {
+    p, li {
+      font-size: 1.5rem;
+    }
+  }
+
+  // Image comes first on small screens
+  @media screen and (max-width: $breakpoint-sm) {
+    > div[data-href='/mentoring'],
+    > div[data-href='/contact'] {
+      order: 2;
+
+      & + img {
+        order: 1;
+      }
+    }
   }
 }
-
-
