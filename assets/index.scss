@@ -63,8 +63,7 @@ main {
 
   @media screen and (max-width: $breakpoint-sm) {
     flex-flow: column nowrap;
-    margin-left: 2.5vw;
-    margin-right: 2.5vw;
+    margin: 99px 5vw 35px;
 
     img {
       max-height: calc(100vh - 99px - 34px);
@@ -95,6 +94,7 @@ a.button {
   }
 
   @media screen and (max-width: $breakpoint-sm) {
+    font-size: 1rem;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -120,6 +120,10 @@ main {
       & + img {
         order: 1;
       }
+    }
+
+    > div[data-href='/contact'] h3 {
+      text-align: center;
     }
   }
 }
