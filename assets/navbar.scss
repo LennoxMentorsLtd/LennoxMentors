@@ -28,7 +28,7 @@ nav {
     font-size: 1.5rem;
     text-decoration: none;
     text-transform: capitalize;
-    font-family: 'baskerville';
+    font-family: 'Libre Baskerville', serif;
     margin: 0 auto;
 
     @media screen and (min-width: $breakpoint) {
@@ -93,7 +93,7 @@ nav {
       font-size: 1.635rem;
       text-decoration: none;
       text-transform: uppercase;
-      font-family: 'baskerville';
+      font-family: 'Libre Baskerville', serif;
 
       &:nth-of-type(3) {
         color: $nav-brand-color;

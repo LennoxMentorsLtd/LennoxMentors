@@ -1,16 +1,7 @@
 @use "_variables" as *;
 
 $headings: h1, h2, h3;
-
-@font-face {
-  font-family: 'belleza';
-  src: url('/assets/fonts/Belleza-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'baskerville';
-  src: url('/assets/fonts/libre-baskerville-regular.ttf') format('truetype')
-}
+@import url('https://fonts.googleapis.com/css2?family=Belleza&family=Libre+Baskerville:ital@0;1&display=swap');
 
 @each $element in join($headings, (p, span, li)) {
   #{$element}.highlight {
@@ -18,28 +9,33 @@ $headings: h1, h2, h3;
   }
 }
 
-$font: (
-  1: 6rem,
-  2: 4rem,
-  3: 3rem,
-);
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 100;
+  letter-spacing: 0.35rem;
+  margin: 0;
 
-@each $h in $headings {
+  @media screen and (max-width: $breakpoint-md) {
+    letter-spacing: 0.25rem;
+  }
+  @media screen and (max-width: $breakpoint-sm) {
+    letter-spacing: 0.15rem;
+  }
+}
+
+@each $h, $sizes in (
+  h1: ('default': 6rem, 'md': 0rem, 'sm': 2.5rem),
+  h2: ('default': 4rem, 'md': 0rem, 'sm': 2rem),
+  h3: ('default': 3rem, 'md': 0rem, 'sm': 1.75rem),
+) {
   #{$h} {
-    font-family: 'bakskerville', serif;
-    font-weight: 100;
-    font-size: map-get($font, index($headings, $h));
-    letter-spacing: 0.35rem;
-    margin: 0 0;
+    font-size: map-get($sizes, 'default');
 
     @media screen and (max-width: $breakpoint-md) {
-      font-size: map-get($font, index($headings, $h)) - 1.5rem;
-      letter-spacing: 0.25rem;
+      font-size: map-get($sizes, 'md');
     }
-
     @media screen and (max-width: $breakpoint-sm) {
-      font-size: map-get($font, index($headings, $h)) - if($h != h3, 1.75rem, 1.25rem);
-      letter-spacing: 0.15rem;
+      font-size: map-get($sizes, 'sm');
     }
   }
 }
@@ -67,4 +63,8 @@ a[href^='mailto:']:hover {
 
 p:last-of-type, li:last-of-type {
   margin-bottom: 3rem;
+}
+
+.text-center {
+  text-align: center;
 }

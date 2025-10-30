@@ -3,8 +3,8 @@
 {% block body %}
 
 <div data-href='/mentoring'>
-  <h1 class="animate-in-right">Have a CEO</h1>
-  <h2 class="animate-in-left after-1s">In Your Corner</h2>
+  <h1 class="animate-in-right sm-none">Have a CEO</h1>
+  <h2 class="animate-in-left after-1s sm-none">in your corner</h2>
 
   <p class='lead animate-in after-1s'>Offering bespoke, independent, executive mentoring to:</p>
 
@@ -17,4 +17,10 @@
   <p class='lead animate-in after-1s'>One-to-one sessions in-person and online</p>
 </div>
 <img class='animate-in for-3s' src="/dist/images/mentoring.jpg" alt="Peter Lennox" />
+
+<!-- Display headings first on small screens -->
+<div class='sm-only text-center'>
+  <h1 class="animate-in-right">Have a CEO</h1>
+  <h2 class="animate-in-left after-1s">in your corner</h2>
+</div>
 {% endblock %}
