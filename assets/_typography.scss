@@ -1,16 +1,16 @@
 @use "_variables" as *;
 
 $headings: h1, h2, h3;
+@import url('https://fonts.googleapis.com/css2?family=Belleza&family=Libre+Baskerville:ital@0;1&display=swap');
+// @font-face {
+//   font-family: 'belleza';
+//   src: url('/assets/fonts/Belleza-Regular.ttf') format('truetype');
+// }
 
-@font-face {
-  font-family: 'belleza';
-  src: url('/assets/fonts/Belleza-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'baskerville';
-  src: url('/assets/fonts/libre-baskerville-regular.ttf') format('truetype')
-}
+// @font-face {
+//   font-family: 'baskerville';
+//   src: url('/assets/fonts/libre-baskerville-regular.ttf') format('truetype')
+// }
 
 @each $element in join($headings, (p, span, li)) {
   #{$element}.highlight {
@@ -24,25 +24,39 @@ $font: (
   3: 3rem,
 );
 
-@each $h in $headings {
-  #{$h} {
-    font-family: 'bakskerville', serif;
-    font-weight: 100;
-    font-size: map-get($font, index($headings, $h));
-    letter-spacing: 0.35rem;
-    margin: 0 0;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 100;
+  letter-spacing: 0.35rem;
+  margin: 0;
 
-    @media screen and (max-width: $breakpoint-md) {
-      font-size: map-get($font, index($headings, $h)) - 1.5rem;
-      letter-spacing: 0.25rem;
-    }
-
-    @media screen and (max-width: $breakpoint-sm) {
-      font-size: map-get($font, index($headings, $h)) - if($h != h3, 1.75rem, 1.25rem);
-      letter-spacing: 0.15rem;
-    }
+  @media screen and (max-width: $breakpoint-md) {
+    letter-spacing: 0.25rem;
+  }
+  @media screen and (max-width: $breakpoint-sm) {
+    letter-spacing: 0.15rem;
   }
 }
+
+// @each $h in $headings {
+//   #{$h} {
+//     font-family: 'bakskerville', serif;
+//     font-weight: 100;
+//     font-size: map-get($font, index($headings, $h));
+//     letter-spacing: 0.35rem;
+//     margin: 0 0;
+
+//     @media screen and (max-width: $breakpoint-md) {
+//       font-size: map-get($font, index($headings, $h)) - 1.5rem;
+//       letter-spacing: 0.25rem;
+//     }
+
+//     @media screen and (max-width: $breakpoint-sm) {
+//       font-size: map-get($font, index($headings, $h)) - if($h != h3, 1.75rem, 1.25rem);
+//       letter-spacing: 0.15rem;
+//     }
+//   }
+// }
 
 p, li, a:not(.button) {
   color: map-get($colors, text);
