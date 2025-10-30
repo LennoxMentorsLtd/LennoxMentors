@@ -24,9 +24,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @each $h, $sizes in (
-  h1: ('default': 6rem, 'md': 0rem, 'sm': 2.5rem),
-  h2: ('default': 4rem, 'md': 0rem, 'sm': 2rem),
-  h3: ('default': 3rem, 'md': 0rem, 'sm': 1.75rem),
+  h1: ('default': 6rem, 'md': 4rem, 'sm': 2.5rem),
+  h2: ('default': 4rem, 'md': 3.5rem, 'sm': 2rem),
+  h3: ('default': 3rem, 'md': 2rem, 'sm': 1.75rem),
 ) {
   #{$h} {
     font-size: map-get($sizes, 'default');
@@ -61,7 +61,11 @@ a[href^='mailto:']:hover {
   text-decoration: underline;
 }
 
-p:last-of-type, li:last-of-type {
+p:last-of-type {
+  margin-bottom: 1rem;
+}
+
+li:last-of-type {
   margin-bottom: 3rem;
 }
 

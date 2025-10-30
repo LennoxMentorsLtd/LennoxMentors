@@ -1,3 +1,5 @@
+@use "_variables" as *;
+
 $breakpoint: 1080px;
 $nav-bg: #E2EBF4;
 $nav-text-color: #5b5247;
@@ -15,6 +17,10 @@ nav {
   z-index: 900;
 
   transition: height ease-in 0.3s;
+
+  @media screen and (max-width: $breakpoint-lg) {
+    height: 6rem;
+  }
 
   @media (max-width: $breakpoint) {
     display: flex;
@@ -99,6 +105,14 @@ nav {
         color: $nav-brand-color;
         font-size: 3.15rem;
         text-transform: capitalize;
+      }
+
+      @media screen and (max-width: $breakpoint-lg) {
+        font-size: 1rem;
+
+        &:nth-of-type(3) {
+          font-size: 2.25rem;
+        }
       }
 
       @media (max-width: $breakpoint) {

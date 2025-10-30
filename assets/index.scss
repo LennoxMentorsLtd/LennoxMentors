@@ -125,6 +125,17 @@ main {
     }
   }
 
+  @media screen and (max-width: $breakpoint-md) {
+    > div[data-href='/contact'] {
+      h1 {
+        font-size: 2.75rem;
+      }
+      p, li {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
   // Image comes first on small screens
   @media screen and (max-width: $breakpoint-sm) {
     > div[data-href='/mentoring'],
