@@ -78,6 +78,20 @@ main {
   }
 }
 
+.sm-only {
+  display: none;
+
+  @media screen and (max-width: $breakpoint-sm) {
+    display: unset;
+  }
+}
+
+.sm-none {
+  @media screen and (max-width: $breakpoint-sm) {
+    display: none;
+  }
+}
+
 a.button {
   background-color: map-get($colors, accent);
   border-radius: 3rem;

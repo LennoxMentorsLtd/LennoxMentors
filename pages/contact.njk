@@ -2,7 +2,7 @@
 
 {% block body %}
 <div data-href='/contact'>
-  <h1 style='text-transform: none;' class='animate-in-right'>
+  <h1 class='animate-in-right sm-none'>
     Elevate your leadership
   </h1>
 
@@ -14,9 +14,18 @@
     <li>Online consultations - subject to availability</li>
   </ul>
 
-  <h3 class='animate-in after-1s'>Contact:</h3>
+  <div class='text-center'>
+    <h3 class='animate-in after-1s'>Contact:</h3>
 
-  <a class='lead animate-in after-1s' href="mailto:enquiries@lennoxmentors.com">enquiries@lennoxmentors.com</a>
+    <a class='lead animate-in after-1s' href="mailto:enquiries@lennoxmentors.com">enquiries@lennoxmentors.com</a>
+  </div>
 </div>
 <img class='animate-in for-3s' src="/dist/images/contact.jpg" alt="Peter Lennox" />
+
+<!-- Display headings first on small screens -->
+<div class='sm-only text-center'>
+  <h1 class='animate-in-right'>
+    Elevate your leadership
+  </h1>
+</div>
 {% endblock %}
