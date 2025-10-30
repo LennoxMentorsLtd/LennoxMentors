@@ -2,15 +2,6 @@
 
 $headings: h1, h2, h3;
 @import url('https://fonts.googleapis.com/css2?family=Belleza&family=Libre+Baskerville:ital@0;1&display=swap');
-// @font-face {
-//   font-family: 'belleza';
-//   src: url('/assets/fonts/Belleza-Regular.ttf') format('truetype');
-// }
-
-// @font-face {
-//   font-family: 'baskerville';
-//   src: url('/assets/fonts/libre-baskerville-regular.ttf') format('truetype')
-// }
 
 @each $element in join($headings, (p, span, li)) {
   #{$element}.highlight {
