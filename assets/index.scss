@@ -26,7 +26,7 @@ main {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 45px;
   margin: 155px 120px 35px;
   transition: margin-top ease-in 0.3s;
@@ -124,7 +124,7 @@ main {
       }
     }
   }
-
+//query: what is going on with font size here, why is it different for different pages?
   @media screen and (max-width: $breakpoint-md) {
     > div[data-href='/contact'] {
       h1 {
@@ -154,7 +154,53 @@ main {
 }
 
 ul, ol, dl {
+  list-style-type: none;
+
+  li::before {
+    content: '\2666';
+    margin-right: 0.5rem;
+  }
+
   @media screen and (max-width: $breakpoint-sm) {
     padding-left: 1.5rem;
+  }
+}
+
+
+/**
+  * Vertically centre content on the index, contact and mentoring pages when using larger screens
+  */
+@media screen and (min-width: $breakpoint-sm) {
+  div[data-href] {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+
+    > div {
+      flex-grow: 0;
+
+      @media (min-height: 640px) {
+        padding-top: 5vh;
+      }
+    }
+
+    div:last-child {
+      flex-grow: 0;
+
+      @media (min-height: 640px) {
+        padding-bottom: 5vh;
+      }
+    }
+  }
+}
+
+div[data-href='/contact'] {
+  text-align: center;
+}
+
+div[data-href='/mentoring'] {
+  h2 {
+    font-size: 6rem;
+    padding-left: 7rem;
   }
 }
