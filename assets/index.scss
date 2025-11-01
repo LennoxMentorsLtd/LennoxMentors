@@ -194,6 +194,35 @@ ul, ol, dl {
   }
 }
 
+div[data-href='/'] {
+  @media screen and (min-width: $breakpoint-lg) {
+    h1 {
+      margin-left: -11.5rem;
+    }
+    h2 {
+      margin-left: -7rem;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-lg) {
+    h1 {
+      margin-left: -10.25rem;
+    }
+    h2 {
+      margin-left: -6.5rem
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-md) {
+    h1 {
+      margin-left: -8.5rem;
+    }
+    h2 {
+      margin-left: -6.25rem;
+    }
+  }
+}
+
 div[data-href='/contact'] {
   text-align: center;
 }
@@ -202,5 +231,19 @@ div[data-href='/mentoring'] {
   h2 {
     font-size: 6rem;
     padding-left: 7rem;
+
+    @media screen and (max-width: $breakpoint-lg) {
+      font-size: 3rem;
+      padding-left: 4rem;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-md) {
+    h1 {
+      font-size: 4rem;
+    }
+    ul {
+      padding-left: 1vw;
+    }
   }
 }

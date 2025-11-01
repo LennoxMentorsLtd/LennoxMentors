@@ -24,13 +24,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @each $h, $sizes in (
-  h1: ('default': 6rem, 'md': 4rem, 'sm': 2.5rem),
-  h2: ('default': 4rem, 'md': 3.5rem, 'sm': 2rem),
-  h3: ('default': 3rem, 'md': 2rem, 'sm': 1.75rem),
+  h1: ('default': 6rem, 'lg': 5rem, 'md': 4rem, 'sm': 2.5rem),
+  h2: ('default': 4rem, 'lg': 3.75rem, 'md': 3.5rem, 'sm': 2rem),
+  h3: ('default': 3rem, 'lg': 2.5rem, 'md': 2rem, 'sm': 1.75rem),
 ) {
   #{$h} {
     font-size: map-get($sizes, 'default');
 
+    @media screen and (max-width: $breakpoint-lg) {
+      font-size: map-get($sizes, 'lg');
+    }
     @media screen and (max-width: $breakpoint-md) {
       font-size: map-get($sizes, 'md');
     }
@@ -45,6 +48,11 @@ p, li, a:not(.button) {
   font-size: 2rem;
   line-height: 2.5rem;
   text-decoration: none;
+
+  @media screen and (max-width: $breakpoint-lg) {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
 
   @media screen and (max-width: $breakpoint-md) {
     font-size: 1.5rem;
@@ -67,10 +75,6 @@ p:last-of-type {
 
 li {
   margin-bottom: 1rem;
-
-  &:last-of-type {
-    margin-bottom: 5rem;
-  }
 }
 
 .text-center {
