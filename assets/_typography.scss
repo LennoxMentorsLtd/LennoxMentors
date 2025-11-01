@@ -65,8 +65,12 @@ p:last-of-type {
   margin-bottom: 1rem;
 }
 
-li:last-of-type {
-  margin-bottom: 3rem;
+li {
+  margin-bottom: 1rem;
+
+  &:last-of-type {
+    margin-bottom: 5rem;
+  }
 }
 
 .text-center {
