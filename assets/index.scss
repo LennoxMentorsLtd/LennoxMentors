@@ -239,9 +239,12 @@ div[data-href='/mentoring'] {
     }
   }
 
-  @media screen and (max-width: $breakpoint-md) {
+  @media screen and (max-width: 1860px) {//$breakpoint-md
     h1 {
       font-size: 4rem;
+    }
+    h2 {
+      font-size: 3.5rem;
     }
     ul {
       padding-left: 1vw;
