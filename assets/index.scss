@@ -157,7 +157,7 @@ ul, ol, dl {
   list-style-type: none;
 
   li::before {
-    color: #fff;
+    color: #fff!important;
     content: '\2666';
     margin-right: 0.5rem;
   }
