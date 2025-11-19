@@ -155,11 +155,12 @@ main {
 
 ul, ol, dl {
   list-style-type: none;
-
-  li::before {
-    color: #fff!important;
-    content: '\2666';
-    margin-right: 0.5rem;
+  @supports not (-webkit-touch-callout: none) {
+    li::before {
+      color: #fff!important;
+      content: '\2666';
+      margin-right: 0.5rem;
+    }
   }
 
   @media screen and (max-width: $breakpoint-sm) {
@@ -251,3 +252,4 @@ div[data-href='/mentoring'] {
     }
   }
 }
+
