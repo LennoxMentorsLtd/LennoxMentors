@@ -154,8 +154,9 @@ main {
 }
 
 ul, ol, dl {
-  list-style-type: none;
   @supports not (-webkit-touch-callout: none) {
+    list-style-type: none;
+    
     li::before {
       color: #fff!important;
       content: '\2666';
@@ -252,4 +253,5 @@ div[data-href='/mentoring'] {
     }
   }
 }
+
 
