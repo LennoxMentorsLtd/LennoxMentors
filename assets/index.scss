@@ -156,7 +156,7 @@ main {
 ul, ol, dl {
   @supports not (-webkit-touch-callout: none) {
     list-style-type: none;
-    
+
     li::before {
       color: #fff!important;
       content: '\2666';
@@ -228,6 +228,12 @@ div[data-href='/'] {
 
 div[data-href='/contact'] {
   text-align: center;
+
+  @supports (-webkit-touch-callout: none) {
+    ol, ul, dl {
+      text-align: left!important;
+    }
+  }
 }
 
 div[data-href='/mentoring'] {
